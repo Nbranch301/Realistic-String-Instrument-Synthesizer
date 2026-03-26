@@ -73,7 +73,7 @@ void SynthVoice::startNote (int midiNoteNumber, float velocity, juce::Synthesise
         
         // Mix it all together and store in buffer (with velocity determining loudness)
         delayBuffer[i] = shaped * pickEnv * velocity * 2.0f;
-        // delayBuffer[i] = 0.5f;
+//        delayBuffer[i] = 0.5f;
     }
 
     // Trigger envelope
@@ -129,10 +129,10 @@ void SynthVoice::renderNextBlock (juce::AudioBuffer<float>& buffer, int startSam
         // - Averages current and previous sample to simulate the energy loss at the bridge and nut
         // - ie: avg = (current + previous) / 2
         
-//        auto& random = juce::Random::getSystemRandom();
-//
+        auto& random = juce::Random::getSystemRandom();
+
 //        float avg = 0.0f;
-//        if (random.nextFloat() < 0.5f) {
+//        if (random.nextFloat() <= 1.0f) {
 //            avg = 0.5f * (delayedSample + avg_z1);
 //        } else {
 //            avg = -0.5f * (delayedSample + avg_z1);
@@ -312,7 +312,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout MUS307FinalAudioProcessor::c
     params.push_back (std::make_unique<juce::AudioParameterFloat>(ATTACK,
                                                     "attack",
                                                     juce::NormalisableRange<float>
-                                                                  (1.0f, 5000.0f, 1.0f, 0.7f), 1.0f));
+                                                                  (1.0f, 10000.0f, 1.0f, 0.7f), 1.0f));
     
     params.push_back (std::make_unique<juce::AudioParameterFloat>(DECAY,
                                                     "decay",

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="eXduy8" name="MUS307 Final" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              pluginFormats="buildAU,buildAUv3,buildVST3">
   <MAINGROUP id="Q4dkmR" name="MUS307 Final">
     <GROUP id="{E35F983E-3B9A-D17F-6F4A-B57F18995AB4}" name="Source">
       <FILE id="GkFLBU" name="PluginProcessor.cpp" compile="1" resource="0"
