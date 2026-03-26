@@ -1,0 +1,15 @@
+# JUCE build files
+Builds/
+Binaries/
+
+# macOS
+.DS_Store
+
+# plugin builds
+*.component
+*.vst3
+*.app
+
+# audio exports
+*.wav
+*.aif
