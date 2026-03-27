@@ -129,7 +129,7 @@ void SynthVoice::renderNextBlock (juce::AudioBuffer<float>& buffer, int startSam
         // - Averages current and previous sample to simulate the energy loss at the bridge and nut
         // - ie: avg = (current + previous) / 2
         
-        auto& random = juce::Random::getSystemRandom();
+//        auto& random = juce::Random::getSystemRandom();
 
 //        float avg = 0.0f;
 //        if (random.nextFloat() <= 1.0f) {
@@ -147,7 +147,7 @@ void SynthVoice::renderNextBlock (juce::AudioBuffer<float>& buffer, int startSam
         
         // global damping
         float filtered = y * damping;
-        filtered += 0.0005f * (juce::Random::getSystemRandom().nextFloat() - 0.5f);
+        //filtered += 0.0005f * (juce::Random::getSystemRandom().nextFloat() - 0.5f);
 
         // Write back at fixed offset from read
         delayBuffer[writeIndex] = filtered;
@@ -209,6 +209,22 @@ MUS307FinalAudioProcessor::MUS307FinalAudioProcessor()
             /* freqs = */           { 100.0f, 240.0f, 480.0f, 1800.0f, 3500.0f },
             /* gains = */           { 3.0f, 6.0f, 4.0f, 5.0f, 3.0f },
             /* output gain = */     -6.0f
+        },
+        {
+            "Flatpicking Guitar",
+            {
+                { PICK_SHARPNESS, 0.3f },
+                { ATTACK,         1.0f  },
+                { DECAY,          114.0f},
+                { SUSTAIN,        70.0f },
+                { RELEASE,        355.0f},
+                { COLOUR,         5.0f  },
+                { BRIGHTNESS,     0.103f},
+                { MAX_DETUNE,     2.0f  }
+            },
+            /* freqs = */           { 100.0f, 230.0f, 500.0f, 1600.0f, 3000.0f },
+            /* gains = */           { 3.0f, 6.0f, 4.0f, 5.0f, 3.0f },
+            /* gain = */            0.0f
         },
         {
             "Nylon Guitar",
